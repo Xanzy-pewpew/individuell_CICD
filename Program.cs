@@ -1,6 +1,19 @@
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-app.MapGet("/", () => "Hello World!");
+var cipherService = new CICD_cipher.CaesarCipherService();
+
+app.MapGet("/", () => "Welcome to API for Caesar Cipher!");
+
+//Endpoint for encrypting the input
+app.MapGet("/encrypt", (string input) =>
+{
+    return cipherService.Encrypt(input);
+});
+//Endpoint for decrypting the input
+app.MapGet("/decrypt", (string input) =>
+{
+    return cipherService.Decrypt(input);
+});
 
 app.Run();
