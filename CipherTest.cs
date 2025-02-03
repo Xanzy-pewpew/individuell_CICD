@@ -1,6 +1,6 @@
 ﻿namespace CICD_cipher;
 
-public class UnitTest1
+public class CipherTest
 {
     [Fact]
     public void Test1()
