@@ -90,3 +90,4 @@ public class CipherTest
         string result = _service.DecrypteFromCaesar(input);
         Assert.Equal(expected, result);
     }
+}

@@ -1,9 +1,10 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System.Text;
 
+namespace CICD_cipher;
 public class CipherService
 {
     //Change this value to modify the shift
-    private readonly int _ shift = 3;
+    private readonly int _shift = 3;
 
     public string Encrypt(string input) 
     {
@@ -11,7 +12,7 @@ public class CipherService
     }
     public string Decrypt(string input)
     {
-        return ProcessInput(input, -_shift);
+        return ProcessInput(input, _shift);
     }
     private string ProcessInput(string input, int shift)
     {
