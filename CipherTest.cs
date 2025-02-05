@@ -1,5 +1,4 @@
-﻿using System;
-using Xunit;
+﻿using Xunit;
 
 namespace CICD_cipher;
 
@@ -12,82 +11,83 @@ public class CipherTest
     }
 
     [Fact]
-    public void EncryptToCaesar_ShouldEncryptCorrectly()
+    public void Encrypt_ShouldEncryptCorrectly()
     {
         string input = "hey";
         string expected = "khb";
-        string result = _service.EncryptToCaesar(input);
+        string result = _service.Encrypt(input);
         Assert.Equal(expected, result);
     }
     [Fact]
-    public void DecryptFromCaesar_ShouldDecryptCorrectly()
+    public void Decrypt_ShouldDecryptCorrectly()
     {
         string input = "khb";
         string expected = "hey";
-        string result = _service.DecrypteFromCaesar(input);
+        string result = _service.Decrypt(input);
         Assert.Equal(expected, result);
     }
     [Fact]
-    public void EncryptToCaesar_Uppercase_ShouldEncryptCorrectly()
+    public void Encrypt_Uppercase_ShouldEncryptCorrectly()
     {
         string input = "HELLO";
         string expected = "KHOOR";
-        string result = _service.EncryptToCaesar(input);
+        string result = _service.Encrypt(input);
         Assert.Equal(expected, result);
     }
     [Fact]
-    public void DecryptFromCaesar_Uppercase_ShouldDecryptCorrectly()
+    public void Decrypt_Uppercase_ShouldDecryptCorrectly()
     {
         string input = "KHOOR";
         string expected = "HELLO";
-        string result = _service.DecrypteFromCaesar(input);
+        string result = _service.Decrypt(input);
         Assert.Equal(expected, result);
     }
     [Fact]
-    public void EncryptToCaesar_Spaces_ShouldEncryptCorrectly()
+    public void Encrypt_Spaces_ShouldEncryptCorrectly()
     {
         string input = "hello there";
         string expected = "khoor wkhuh";
-        string result = _service.EncryptToCaesar(input);
+        string result = _service.Encrypt(input);
         Assert.Equal(expected, result);
     }
     [Fact]
-    public void DecryptFromCaesar_Spaces_ShouldDecryptCorrectly()
+    public void Decrypt_Spaces_ShouldDecryptCorrectly()
     {
         string input = "khoor wkhuh";
         string expected = "hello there";
-        string result = _service.DecrypteFromCaesar(input);
+        string result = _service.Decrypt(input);
         Assert.Equal(expected, result);
     }
     [Fact]
-    public void EncryptToCaesar_LoopAlphabet_ShouldEncryptCorrectly()
+    public void Encrypt_LoopAlphabet_ShouldEncryptCorrectly()
     {
         string input = "xyz";
         string expected = "abc";
-        string result = _service.EncryptToCaesar(input);
+        string result = _service.Encrypt(input);
         Assert.Equal(expected, result);
     }
     [Fact]
-    public void DecryptFromCaesar_LoopAlphabet_ShouldDecryptCorrectly()
+    public void Decrypt_LoopAlphabet_ShouldDecryptCorrectly()
     {
         string input = "abc";
         string expected = "xyz";
-        string result = _service.DecrypteFromCaesar(input);
+        string result = _service.Decrypt(input);
         Assert.Equal(expected, result);
     }
     [Fact]
-    public void EncryptToCaesar_IgnoreNonAlphabet_ShouldEncryptCorrectly()
+    public void Encrypt_IgnoreNonAlphabet_ShouldEncryptCorrectly()
     {
         string input = "hello, world!";
         string expected = "khoor, zruog!";
-        string result = _service.EncryptToCaesar(input);
+        string result = _service.Encrypt(input);
         Assert.Equal(expected, result);
     }
     [Fact]
-    public void DecryptFromCaesar_IgnoreNonAlphabet_ShouldDecryptCorrectly()
+    public void Decrypt_IgnoreNonAlphabet_ShouldDecryptCorrectly()
     {
         string input = "khoor, zruog!";
         string expected = "hello, world!";
-        string result = _service.DecrypteFromCaesar(input);
+        string result = _service.Decrypt(input);
         Assert.Equal(expected, result);
     }
+}
