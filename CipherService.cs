@@ -6,31 +6,56 @@ public class CipherService
     //Change this value to modify the shift
     private readonly int _shift = 3;
 
-    public string Encrypt(string input) 
+    public string Encrypt(string input)
     {
-        return ProcessInput(input, _shift);
-    }
-    public string Decrypt(string input)
-    {
-        return ProcessInput(input, _shift);
-    }
-    private string ProcessInput(string input, int shift)
-    {
-        var result = new StringBuilder();
+        var result = "";
+        int leterValue;
         foreach (var character in input)
         {
+            leterValue = character;
             if (char.IsLetter(character))
             {
-                char offset = char.IsUpper(character) ? 'A' : 'a';
-                int letterValue = (character - offset + shift + 26) % 26;  //Ensure non-negative shift
-                result.Append((char)(letterValue + offset));
+                if (char.IsUpper(character))
+                {
+                    result += (char)((leterValue - 'A' + _shift) % 26 + 'A');
+                }
+                else
+                {
+                    result += (char)((leterValue - 'a' + _shift) % 26 + 'a');
+                }
             }
             else
             {
                 //Keep non-letter characters unchanged
-                result.Append(character);
+                result += character;
             }
         }
-        return result.ToString();
+        return result;
+    }
+    public string Decrypt(string dinput)
+    {
+        var result = "";
+        int leterValue;
+        foreach (var character in dinput)
+        {
+            leterValue = character;
+            if (char.IsLetter(character))
+            {
+                if (char.IsUpper(character))
+                {
+                    result += (char)((leterValue - 'A' - _shift + 26) % 26 + 'A');
+                }
+                else
+                {
+                    result += (char)((leterValue - 'a' - _shift + 26) % 26 + 'a');
+                }
+            }
+            else
+            {
+                //Keep non-letter characters unchanged
+                result += character;
+            }
+        }
+        return result;
     }
 }

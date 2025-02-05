@@ -11,9 +11,9 @@ app.MapGet("/encrypt", (string input) =>
     return cipherService.Encrypt(input);
 });
 //Endpoint for decrypting the input
-app.MapGet("/decrypt", (string input) =>
+app.MapGet("/decrypt", (string dinput) =>
 {
-    return cipherService.Decrypt(input);
+    return cipherService.Decrypt(dinput);
 });
 
 app.Run();
