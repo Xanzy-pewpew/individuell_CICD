@@ -1,7 +1,7 @@
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-var cipherService = new CICD_cipher.CaesarCipherService();
+var cipherService = new CICD_cipher.CipherService();
 
 app.MapGet("/", () => "Welcome to API for Caesar Cipher!");
 
